@@ -37,16 +37,5 @@ public class ColaD implements ColaTDA {
         return origen.getValue();
     }
 
-    @Override
-    public void showCola() {
-        Nodo aux = origen;
-        System.out.print("<");
-        while (aux != null) {
-            System.out.print(aux.getValue());
-            if (aux.getSig() != null)
-                System.out.print(", ");
-            aux = aux.getSig();
-        }
-        System.out.println(">");
-    }
+
 }

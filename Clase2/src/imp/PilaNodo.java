@@ -5,36 +5,27 @@ import nodo.Nodo;
 
 public class PilaNodo implements PilaListaEnlazada {
 
-    Nodo lista;
-    int cant;
+    Nodo inicio;
+    Nodo nodoFinal;
 
-    public Nodo getLista() {
-        return lista;
-    }
 
     @Override
     public void InicializarPila() {
-        lista = new Nodo();
-        lista.setValue(0);
-        lista.setSig(null);
-        cant = 0;
-    }
+        inicio = null;
+        nodoFinal = null;
+   }
 
     @Override
     public void Apilar(int x) {
         Nodo nuevo = new Nodo();
         nuevo.setValue(x);
         nuevo.setSig(null);
-        cant ++;
-        if(lista == null){
-            System.out.println("Lista vacia. Iniciela para poder apilar");
+        if(PilaVacia()){
+            inicio = nuevo;
         }else{
-            Nodo current = lista;
-            while(current.getSig() != null){
-                current = current.getSig();
-            }
-            current.setSig(nuevo);
+            nodoFinal.setSig(nuevo);
         }
+        nodoFinal = nuevo;
 
     }
     @Override
@@ -43,35 +34,27 @@ public class PilaNodo implements PilaListaEnlazada {
             System.out.println("Pila Vacia");
             return;
         }
-        if (cant == 1){
-            cant--;
-            lista = null;
-        }else{
-            Nodo current = lista;
-            while(current.getSig().getSig() != null){
-                current =  current.getSig();
-            }
-            current.setSig(null);
-            cant--;
-        }
 
+        Nodo current = inicio;
+
+        while(current.getSig() != nodoFinal){
+            if (current.getSig() == null){
+                inicio = null;
+                break;
+            }
+            current = current.getSig();
+        }
+        current.setSig(null);
+        nodoFinal = current;
     }
 
     @Override
     public int Tope() {
-        Nodo current = lista;
-        if(PilaVacia()){
-            System.out.println("Pila Vacia");
-            return 0;
-        }
-        while(current.getSig() != null){
-            current = current.getSig();
-        }
-        return current.getValue();
+        return nodoFinal.getValue();
     }
 
     @Override
     public boolean PilaVacia() {
-        return (cant == 0);
+        return (inicio == null);
     }
 }

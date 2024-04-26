@@ -9,5 +9,4 @@ public interface ColaPTDA {
     int Primero();
 
     boolean ColaVacia();
-    void showCola();
 }

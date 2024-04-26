@@ -73,17 +73,5 @@ public class ColaDP implements ColaPTDA {
     public boolean ColaVacia() {
         return (origen == null);
     }
-    @Override
-    public void showCola() {
-        NodoP aux = origen;
-        System.out.print("<");
-        while (aux != null) {
-            System.out.print("(" + aux.getValue() + " " + aux.getPriority() + ")");
-            if (aux.getSig() != null)
-                System.out.print(", ");
-            aux = aux.getSig();
-        }
-        System.out.println(">");
-    }
 
 }

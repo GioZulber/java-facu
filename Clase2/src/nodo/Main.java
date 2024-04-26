@@ -17,25 +17,19 @@ public class Main {
             A.Desapilar();
         }
         while (!Aux.PilaVacia()){
-            if (A.PilaVacia()){
-                A.InicializarPila();
-                A.Apilar(Aux.Tope());
-            }
-            else{
-                A.Apilar(Aux.Tope());
-            }
+            A.Apilar(Aux.Tope());
             Copy.Apilar(Aux.Tope());
             Aux.Desapilar();
         }
         return  Copy;
     }
     public static void showList(PilaListaEnlazada X) {
-        PilaListaEnlazada copia = copyPila(X);
+        PilaListaEnlazada copy = copyPila(X);
         System.out.print("<");
-        while(!copia.PilaVacia()){
-            System.out.print(copia.Tope());
-            copia.Desapilar();
-            if(!copia.PilaVacia())
+        while(!copy.PilaVacia()){
+            System.out.print(copy.Tope());
+            copy.Desapilar();
+            if(!copy.PilaVacia())
                 System.out.print(", ");
         }
         System.out.println(">");
@@ -50,6 +44,7 @@ public class Main {
         pila.Apilar(4);
         pila.Apilar(6);
         pila.Apilar(8);
+        //showList(pila);
         System.out.println("Tope: " + pila.Tope());
         pila.Desapilar();
         System.out.println("Nuevo tope: " + pila.Tope());

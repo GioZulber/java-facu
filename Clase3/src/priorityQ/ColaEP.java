@@ -64,15 +64,4 @@ public class ColaEP implements ColaPTDA {
         return (cant == 0);
     }
 
-    @Override
-    public void showCola() {
-        System.out.print("<");
-        for (int i = 0; i < cant; i++) {
-            System.out.print("( " + values[i] + " " + priorities[i] + " )");
-            if(i != cant - 1) {
-                System.out.print(",");
-            }
-        }
-        System.out.println(">");
-    }
 }

@@ -35,14 +35,4 @@ public class ColaE implements ColaTDA {
         return array[0];
     }
 
-    public void showCola() {
-        System.out.print("<");
-        for (int i = 0; i < cant; i++) {
-            System.out.print(array[i]);
-            if(i != cant - 1) {
-                System.out.print(",");
-            }
-        }
-        System.out.println(">");
-    }
 }
