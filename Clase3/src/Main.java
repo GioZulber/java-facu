@@ -99,6 +99,7 @@ public class Main {
         cola1.Acolar(5, 5);
         cola1.Acolar(3, 7);
         cola1.Acolar(6,2);
+        cola1.Acolar(5, 3);
         System.out.println("Cola 1");
         showCola(cola1);
 
@@ -113,10 +114,11 @@ public class Main {
         System.out.println("Cola 2");
         showCola(cola2);
 
+        /*
         ColaPTDA res = unionColas(cola1,cola2);
         System.out.println("Cola final");
         showCola(res);
-
+        */
 
     }
 }

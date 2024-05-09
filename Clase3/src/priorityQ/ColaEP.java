@@ -16,28 +16,16 @@ public class ColaEP implements ColaPTDA {
 
     @Override
     public void Acolar(int x, int prioridad) {
-        if(ColaVacia()){
-            values[cant] = x;
-            priorities[cant] = prioridad;
-            cant++;
-        }else if(prioridad >= priorities[cant-1]) {
-            values[cant] = x;
-            priorities[cant] = prioridad;
-            cant++;
-        }else{
-            for (int i = 0; i < cant; i++){
-                if(priorities[i] > prioridad){
-                    for (int j = cant; j > i; j--){
-                        values[j] = values[j - 1];
-                        priorities[j] = priorities[j - 1];
-                    }
-                    values[i] = x;
-                    priorities[i] = prioridad;
-                    cant++;
-                    break;
-                }
-            }
+        int i = cant;
+
+        while (i > 0 && priorities[i - 1] >= prioridad) {
+            values[i] = values[i - 1];
+            priorities[i] = priorities[i - 1];
+            i--;
         }
+        values[i] = x;
+        priorities[i] = prioridad;
+        cant++;
     }
 
     @Override

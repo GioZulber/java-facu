@@ -43,7 +43,7 @@ public class Main {
         ConjutnoTDA c = new Conjunto();
         c.InicializarConjunto(a.Limite());
         for(int i = 0; i < a.Limite(); i++){
-            if(a.Pertenece(i) && !b.Pertenece(i)){
+            if(!a.Pertenece(i) && !b.Pertenece(i)){
                 c.Agregar(i);
             }
         }

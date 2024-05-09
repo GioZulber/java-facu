@@ -2,8 +2,10 @@ package activities;
 
 import api.PilaTDA;
 import imp.PilaTF;
+import imp.PilaTF2;
 
 public class punto1 {
+
     public static PilaTDA pasaraOtraPila(PilaTDA X){
         PilaTDA pilaAux = new PilaTF();
         pilaAux.InicializarPila();
@@ -15,9 +17,9 @@ public class punto1 {
     }
 
     public static PilaTDA copiarPila(PilaTDA X){
-        PilaTDA pilaAux = new PilaTF();
+        PilaTDA pilaAux = new PilaTF2();
         pilaAux.InicializarPila();
-        PilaTDA pilaAux2 = new PilaTF();
+        PilaTDA pilaAux2 = new PilaTF2();
         pilaAux2.InicializarPila();
         while(!X.PilaVacia()){
             pilaAux.Apilar(X.Tope());
@@ -33,8 +35,8 @@ public class punto1 {
     }
 
     public static void invertirPila(PilaTDA X){
-        PilaTDA pilaAux = new PilaTF();
-        PilaTDA pilaAux2 = new PilaTF();
+        PilaTDA pilaAux = new PilaTF2();
+        PilaTDA pilaAux2 = new PilaTF2();
         pilaAux.InicializarPila();
         pilaAux2.InicializarPila();
         while(!X.PilaVacia()){
@@ -88,7 +90,7 @@ public class punto1 {
     }
 
     public static void main(String[] args) {
-        PilaTDA pila = new PilaTF();
+        PilaTDA pila = new PilaTF2();
         pila.InicializarPila();
         pila.Apilar(2);
         pila.Apilar(4);
@@ -99,11 +101,12 @@ public class punto1 {
         showPila(pila);
         //PilaTDA pilaAux = pasaraOtraPila(pila);
         //showPila(pilaAux);
+        /*
         invertirPila(pila);
         showPila(pila);
         System.out.println(contarElementos(pila));
         System.out.println(sumarElementos(pila));
         System.out.println(promedioPila(pila));
-
+        */ 
     }
 }
