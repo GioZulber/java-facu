@@ -1,15 +1,14 @@
 package modelo1.Conjuntos.imp;
 
-import modelo1.Conjuntos.api.ConjuntoTDA;
+import modelo1.Conjuntos.api.M1ConjuntoTDA;
 
-public class ConjuntoLD implements ConjuntoTDA {
+public class ConjuntoLD implements M1ConjuntoTDA {
     Nodo origen;
 
-    Nodo ultimo;
     @Override
     public void InicializarConjunto() {
         origen = null;
-        ultimo = null;
+
     }
 
     @Override
@@ -17,41 +16,26 @@ public class ConjuntoLD implements ConjuntoTDA {
         if(!this.Pertenece(x)){
             Nodo nuevo = new Nodo();
             nuevo.setValue(x);
-            nuevo.setSig(null);
-            if(origen == null){
-                origen = nuevo;
-            }
-            else{
-                ultimo.setSig(nuevo);
-            }
-            ultimo = nuevo;
+            nuevo.setSig(origen);
+            origen = nuevo;
         }
     }
 
     @Override
     public void Sacar(int x) {
-        if(ConjuntoVacio()){
-            return;
-        }
-        if(origen.getValue() == x){
-            origen = origen.getSig();
-            if(origen == null){
-                ultimo = null;
-            }
-        }
-        else{
-            Nodo aux = origen;
-            while (aux.getSig() != null && aux.getSig().getValue() != x){
-                aux = aux.getSig();
-            }
-            if(aux.getSig() != null){
-                aux.setSig(aux.getSig().getSig());
-                if(aux.getSig() == null){
-                    ultimo = aux;
+        if(!ConjuntoVacio()) {
+            if (origen.getValue() == x) {
+                origen = origen.getSig();
+            } else {
+                Nodo aux = origen;
+                while (aux.getSig() != null && aux.getSig().getValue() != x) {
+                    aux = aux.getSig();
+                }
+                if (aux.getSig() != null) {
+                    aux.setSig(aux.getSig().getSig());
                 }
             }
         }
-
     }
 
     @Override
@@ -64,9 +48,9 @@ public class ConjuntoLD implements ConjuntoTDA {
     }
 
 
-    private ConjuntoTDA CopiarConjunto(ConjuntoTDA c){
-        ConjuntoTDA aux = new ConjuntoLD();
-        ConjuntoTDA c2 = new ConjuntoLD();
+    private M1ConjuntoTDA CopiarConjunto(M1ConjuntoTDA c){
+        M1ConjuntoTDA aux = new ConjuntoLD();
+        M1ConjuntoTDA c2 = new ConjuntoLD();
         c2.InicializarConjunto();
         aux.InicializarConjunto();
         while(!c.ConjuntoVacio()){
@@ -84,8 +68,8 @@ public class ConjuntoLD implements ConjuntoTDA {
         return c2;
     }
 
-    private void mostrarConjunto(ConjuntoTDA c){
-        ConjuntoTDA aux = CopiarConjunto(c);
+    private void mostrarConjunto(M1ConjuntoTDA c){
+        M1ConjuntoTDA aux = CopiarConjunto(c);
         System.out.print("{");
         while(!aux.ConjuntoVacio()){
             int x = aux.Elegir();
@@ -104,8 +88,8 @@ public class ConjuntoLD implements ConjuntoTDA {
 
 
     @Override
-    public boolean TodosPertenecen(ConjuntoTDA c) { // costo cubico
-        ConjuntoTDA c2 = this.CopiarConjunto(c); // costo lineal
+    public boolean TodosPertenecen(M1ConjuntoTDA c) { // costo cubico
+        M1ConjuntoTDA c2 = this.CopiarConjunto(c); // costo lineal
 
         boolean pertenece = true;
         while (!c2.ConjuntoVacio() && pertenece){ // costo cuadratico
@@ -117,7 +101,7 @@ public class ConjuntoLD implements ConjuntoTDA {
     }
 
     @Override
-    public void SacarTodos(ConjuntoTDA c) {
+    public void SacarTodos(M1ConjuntoTDA c) {
         Nodo aux = origen;
         while (aux != null){
             if(c.Pertenece(aux.getValue())){

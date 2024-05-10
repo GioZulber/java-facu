@@ -1,14 +1,13 @@
 package modelo1.Conjuntos;
 
-import modelo1.Conjuntos.api.ConjuntoTDA;
+import modelo1.Conjuntos.api.M1ConjuntoTDA;
 import modelo1.Conjuntos.imp.ConjuntoLD;
-import modelo1.Conjuntos.imp.ConjuntoTA;
 
 public class prin {
 
-    public static ConjuntoTDA CopiarConjunto(ConjuntoTDA c){
-        ConjuntoTDA aux = new ConjuntoLD();
-        ConjuntoTDA c2 = new ConjuntoLD();
+    public static M1ConjuntoTDA CopiarConjunto(M1ConjuntoTDA c){
+        M1ConjuntoTDA aux = new ConjuntoLD();
+        M1ConjuntoTDA c2 = new ConjuntoLD();
         c2.InicializarConjunto();
         aux.InicializarConjunto();
         while(!c.ConjuntoVacio()){
@@ -24,8 +23,8 @@ public class prin {
         }
         return c2;
     }
-    public static void mostrarConjunto(ConjuntoTDA c){
-        ConjuntoTDA aux = CopiarConjunto(c);
+    public static void mostrarConjunto(M1ConjuntoTDA c){
+        M1ConjuntoTDA aux = CopiarConjunto(c);
         System.out.print("{");
         while(!aux.ConjuntoVacio()){
             int x = aux.Elegir();
@@ -43,8 +42,8 @@ public class prin {
     }
 
     public static void main(String[] args) {
-        ConjuntoTDA c1 = new ConjuntoLD();
-        ConjuntoTDA c2 = new ConjuntoLD();
+        M1ConjuntoTDA c1 = new ConjuntoLD();
+        M1ConjuntoTDA c2 = new ConjuntoLD();
         c1.InicializarConjunto();
         c2.InicializarConjunto();
         c1.Agregar(1);

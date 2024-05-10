@@ -1,8 +1,8 @@
 package modelo1.Conjuntos.imp;
 
-import modelo1.Conjuntos.api.ConjuntoTDA;
+import modelo1.Conjuntos.api.M1ConjuntoTDA;
 
-public class ConjuntoTA implements ConjuntoTDA {
+public class ConjuntoTA implements M1ConjuntoTDA {
     int[] a;
 
     int cant;
@@ -42,9 +42,9 @@ public class ConjuntoTA implements ConjuntoTDA {
         return i < cant;
     }
 
-    private ConjuntoTDA CopiarConjunto(ConjuntoTDA c){
-        ConjuntoTDA aux = new ConjuntoTA();
-        ConjuntoTDA c2 = new ConjuntoTA();
+    private M1ConjuntoTDA CopiarConjunto(M1ConjuntoTDA c){
+        M1ConjuntoTDA aux = new ConjuntoTA();
+        M1ConjuntoTDA c2 = new ConjuntoTA();
         c2.InicializarConjunto();
         aux.InicializarConjunto();
         while(!c.ConjuntoVacio()){
@@ -62,8 +62,8 @@ public class ConjuntoTA implements ConjuntoTDA {
         return c2;
     }
 
-    private int ContarElementos(ConjuntoTDA c){
-        ConjuntoTDA c2 = this.CopiarConjunto(c);
+    private int ContarElementos(M1ConjuntoTDA c){
+        M1ConjuntoTDA c2 = this.CopiarConjunto(c);
         int cont = 0;
         while(!c2.ConjuntoVacio()){
             int x = c2.Elegir();
@@ -75,7 +75,7 @@ public class ConjuntoTA implements ConjuntoTDA {
     }
 
     @Override
-    public boolean TodosPertenecen(ConjuntoTDA c) {
+    public boolean TodosPertenecen(M1ConjuntoTDA c) {
         int cont = this.ContarElementos(c); // costo cuadratico
 
         boolean pertencen = true;
@@ -88,7 +88,7 @@ public class ConjuntoTA implements ConjuntoTDA {
     }
 
     @Override
-    public void SacarTodos(ConjuntoTDA c) { // costo cubico
+    public void SacarTodos(M1ConjuntoTDA c) { // costo cubico
 
         int cont = this.ContarElementos(c); // costo cuadratico
         for(int i = 0; i<cont; i++){ // costo cubico
