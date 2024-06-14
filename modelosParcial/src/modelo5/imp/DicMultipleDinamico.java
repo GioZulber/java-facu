@@ -7,7 +7,7 @@ import modelo2.imp.ConjuntosLD;
 public class DicMultipleDinamico implements DiccionarioMultipleTDA {
     class NodoClave{
         int clave;
-       NodoValor valores;
+        NodoValor valores;
         NodoClave sigClave;
 
     }
