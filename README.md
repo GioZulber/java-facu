@@ -1,2 +1,2 @@
-#Actividades y apuntes Programacion 2.
+# Actividades y apuntes Programacion 2.
 
