@@ -2,9 +2,9 @@ package api;
 
 import imp.Elemento;
 
-public interface iHeapTDA {
-    int primero();
-    void agregar(int x);
+public interface iHeapObjTDA {
+    Elemento primero();
+    void agregar(int prioridad, int valor);
     void eliminar();
     boolean vacio();
     int cantidad();

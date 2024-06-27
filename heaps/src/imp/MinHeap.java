@@ -21,7 +21,7 @@ public class MinHeap implements iHeapTDA {
     @Override
     public void agregar(int x) {
         elems[cant] = x;
-        int i = cant-1;
+        int i = cant;
         while(tienePadre(i) && padre(i) > elems[i]) {
             intercambiar(indicePadre(i), i);
             i = indicePadre(i);
@@ -56,13 +56,6 @@ public class MinHeap implements iHeapTDA {
     public int cantidad() {
         return cant;
     }
-    @Override
-    public void print(){
-        for (int i = 0; i < cant; i++)
-            System.out.print(elems[i] + " ");
-        System.out.println();
-    }
-
 
     //Obtener indices
     private int indicePadre(int i) {
