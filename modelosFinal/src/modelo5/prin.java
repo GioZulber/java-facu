@@ -54,22 +54,20 @@ public class prin {
 
     }
 
-
+    public static int sumarElsHojas(ABBTDA arbol ){
+        if(arbol.ArbolVacio()) return 0;
+        else if (arbol.HijoIzq().ArbolVacio() && arbol.HijoDer().ArbolVacio()) return  arbol.Raiz()  ;
+        else return sumarElsHojas(arbol.HijoIzq())+ sumarElsHojas(arbol.HijoDer());
+    }
     public static void main(String[] args) {
         ABBTDA arbol = new ABB();
         arbol.InicializarArbol();
-        arbol.AgregarElem(54);
-        arbol.AgregarElem(27);
-        arbol.AgregarElem(48);
-        arbol.AgregarElem(22);
-        arbol.AgregarElem(75);
-        arbol.AgregarElem(111);
-        arbol.AgregarElem(30);
-        arbol.AgregarElem(76);
-        arbol.AgregarElem(80);
-        arbol.AgregarElem(121);
-        arbol.AgregarElem(21);
-        arbol.AgregarElem(98);
+        arbol.AgregarElem(4);
+        arbol.AgregarElem(2);
+        arbol.AgregarElem(1);
+        arbol.AgregarElem(3);
+        arbol.AgregarElem(5);
+
 
 
         System.out.println("In order");
@@ -80,6 +78,7 @@ public class prin {
         mostrar(c);
         System.out.println();
         System.out.println("Altura del arbol: " + altura(arbol));
+        System.out.println("Suma de las hojas: " + sumarElsHojas(arbol));
 
 
 

@@ -4,5 +4,5 @@
 /**
  * 
  */
-module GrafoMatriz {
+module BoundedUniverseTDA {
 }
