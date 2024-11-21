@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Paciente {
@@ -13,23 +14,24 @@ public class Paciente {
     }
 
     public void agregarTratamiento(Tratamiento unTratamiento) throws TratamientoException{
-
-
         if (obraSocial.podesCubrir(unTratamiento)) {
             historiaClinica.add(unTratamiento);
         }
         else throw new TratamientoException("OPERACIÓN FALLIDA: La obra social no cubre el tratamiento");
     }
 
+    public List<Tratamiento> historiaClinicaSegunEspecialidad(Especialidad especialidad) {
+        return historiaClinica
+                .stream()
+                .filter(tratamiento -> tratamiento.getEspecialidad() == especialidad)
+                .toList();
+    }
+
     public Set<Tratamiento> getHistoriaClinica(){
         return historiaClinica;
     }
 
-    public void historiaClinicaToString(){
-        for (Tratamiento tratamiento : historiaClinica) {
-            System.out.println(tratamiento.getNombre());
-        }
-    }
+
 
 
 }

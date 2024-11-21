@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class OSCustom extends ObraSocial {
@@ -12,6 +13,12 @@ public class OSCustom extends ObraSocial {
         tratamientos.add(tratamiento);
     }
 
+    public List<Tratamiento> tratamientosSegunEspecialidad(Especialidad especialidad) {
+        return tratamientos
+                .stream()
+                .filter(tratamiento -> tratamiento.getEspecialidad() == especialidad)
+                .toList();
+    }
 
     @Override
     public boolean podesCubrir(Tratamiento tratamiento) {

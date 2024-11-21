@@ -10,7 +10,7 @@ public class OSEspecialidad extends ObraSocial{
 
 
     @Override
-    public boolean podesCubrir(Tratamiento tratamiento) {
+    public boolean podesCubrir(Tratamiento tratamiento)  throws TratamientoException{
         return tratamiento.getEspecialidad() == especialidadAsociada;
     }
 }
